@@ -1,0 +1,17 @@
+smiles,group,hERG_structure_optimization
+Nc1ccc2nc(Cc3ccc(Oc4ccccc4)cc3)[nH]c2c1,test,123456
+O=C(O)[C@@H](CC1CCC1)N1CC(CN2CCC(c3cnc4ccccn34)CC2)[C@@H](c2cccc(F)c2)C1,test,123456
+NCc1ccc(F)c(C2CCN(C(=O)c3cccc(-c4nc(-c5cccs5)no4)c3)CC2)c1,test,123456
+NCc1ccc(F)c(C2CCN(C(=O)c3cccc(-c4nc(-c5cccs5)no4)c3)CC2)c1,test,123456
+CCn1nc(Cc2ccc(C#N)cc2)cc1C1CCN(C[C@H]2CN([C@@H](C(=O)O)C(C)(C)C)C[C@@H]2c2cccc(F)c2)CC1,test,123456
+O=C1c2ccc(OCc3ccccc3)cc2CCC1CCN1CCC(c2ccccc2)CC1,test,123456
+CC(=O)N1CCN(Cc2ccnc(Nc3ncc(-c4ccccc4)s3)c2)CC1,test,123456
+O=S(=O)(c1ccc(Cl)cc1)C1CCN(CCc2ccc(F)cc2F)CC1,test,123456
+CC(=O)Nc1ccc2nc(Cc3ccc(Oc4ccccc4)cc3)[nH]c2c1,test,123456
+O=C(O)[C@@H](CC1CCC1)N1CC(CN2CCC(c3cnc4ccc(C(F)(F)F)cn34)CC2)[C@@H](c2cccc(F)c2)C1,test,123456
+NCc1ccc(F)c(C2CCN(C(=O)c3cc(C(=O)O)cc(-c4nc(-c5cccs5)no4)c3)CC2)c1,test,123456
+NCc1ccc(F)c(C2CCN(C(=O)c3cc(C(N)=O)cc(-c4nc(-c5cccs5)no4)c3)CC2)c1,test,123456
+CCn1nc(Cc2ccc(S(C)(=O)=O)cc2)cc1C1CCN(C[C@H]2CN([C@@H](C(=O)O)C(C)(C)C)C[C@@H]2c2cccc(F)c2)CC1,test,123456
+COc1ccc2c(c1)CCC(CCN1CCC(c3ccccc3)CC1)C2=O,test,123456
+CC(=O)N1CCN(Cc2ccnc(Nc3ncc(C#N)s3)c2)CC1,test,123456
+NC(=O)c1cccc(S(=O)(=O)C2CCN(CCc3ccc(F)cc3F)CC2)c1,test,123456

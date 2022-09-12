@@ -1,0 +1,10 @@
+smiles,group,Mutagenicity_structure_optimization
+NS(=O)(=O)c1ccc(F)c([N+](=O)[O-])c1,test,123456
+OS(=O)(=O)c1ccc(F)c([N+](=O)[O-])c1,test,123456
+C(F)(F)(F)c1ccc(F)c([N+](=O)[O-])c1,test,123456
+COc1cc(S(=O)(=O)N)ccc1N,test,123456
+COc1cc(S(=O)(=O)O)ccc1N,test,123456
+COc1cc(C(F)(F)(F))ccc1N,test,123456
+Cc1ccc(S(=O)(=O)N)cc1[N+](=O)[O-],test,123456
+Cc1ccc(S(=O)(=O)O)cc1[N+](=O)[O-],test,123456
+Cc1ccc(C(F)(F)(F))cc1[N+](=O)[O-],test,123456

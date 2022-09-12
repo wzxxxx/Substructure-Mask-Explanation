@@ -111,31 +111,13 @@ def brics_mol_generator(frag_num=1, same_frag_combination_mol_num=10, mol_number
     return all_generator_mol_smi
 
 
-
-# data = pd.read_csv('../prediction/attribution/{}_brics_attribution_summary.csv'.format('hERG'))
-# smiles_list = list(set(data.smiles.tolist()))
-# all_frags_smi = []
-# all_frags_attri = []
-# for i, smi in enumerate(smiles_list):
-#     sorted_frags_smi_i, frags_attribution_i = return_match_brics_fragment(smi, data)
-#     all_frags_smi = all_frags_smi + sorted_frags_smi_i
-#     all_frags_attri = all_frags_attri + frags_attribution_i
-# all_frags_rogue_smi = [return_rogue_smi(frag_smi) for frag_smi in all_frags_smi]
-# Mutagenicity_data_hERG_task_brics_frags_data = pd.DataFrame()
-# Mutagenicity_data_hERG_task_brics_frags_data['frag_smiles'] = all_frags_smi
-# Mutagenicity_data_hERG_task_brics_frags_data['frag_rogue_smiles'] = all_frags_rogue_smi
-# Mutagenicity_data_hERG_task_brics_frags_data['attribution'] = all_frags_attri
-# Mutagenicity_data_hERG_task_brics_frags_data.to_csv('../brics_build_mol/{}_brics_frag.csv'.format('hERG'), index=False)
-
-# mutagenicity data but prediction of hERG model to generate hERG attribution fragments
-# 让取到的分子是一次从attribution最大及最小来排序的
-Mutagenicity_data_hERG_task_brics_frags_data = pd.read_csv('../brics_build_mol/{}_brics_frag.csv'.format('hERG'))
-Mutagenicity_data_hERG_task_brics_frags_data.sort_values(by='attribution', ascending=True, inplace=True)
-negative_brics_frags_1 = Mutagenicity_data_hERG_task_brics_frags_data[
-    Mutagenicity_data_hERG_task_brics_frags_data['attribution'] < 0].frag_smiles.tolist()
-Mutagenicity_data_hERG_task_brics_frags_data.sort_values(by='attribution', ascending=False, inplace=True)
-positive_brics_frags_1 = Mutagenicity_data_hERG_task_brics_frags_data[
-    Mutagenicity_data_hERG_task_brics_frags_data['attribution'] > 0].frag_smiles.tolist()
+hERG_brics_frags_data_frags_data = pd.read_csv('../brics_build_mol/{}_brics_frag.csv'.format('hERG'))
+hERG_brics_frags_data_frags_data.sort_values(by='attribution', ascending=True, inplace=True)
+negative_brics_frags_1 = hERG_brics_frags_data_frags_data[
+    hERG_brics_frags_data_frags_data['attribution'] < 0].frag_smiles.tolist()
+hERG_brics_frags_data_frags_data.sort_values(by='attribution', ascending=False, inplace=True)
+positive_brics_frags_1 = hERG_brics_frags_data_frags_data[
+    hERG_brics_frags_data_frags_data['attribution'] > 0].frag_smiles.tolist()
 
 Mutag_brics_frags_data = pd.read_csv('../brics_build_mol/{}_brics_frag.csv'.format('Mutagenicity'))
 # 让取到的分子是一次从attribution最大及最小来排序的

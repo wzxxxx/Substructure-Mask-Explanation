@@ -23,5 +23,5 @@ scipy
 
 
 
-The datasets, models and prediction results can be downloaded from the following link for reproduction: 链接：https://pan.baidu.com/s/1xVmKr6bJdCKCT6ftRaKTbg 
+The datasets, models and prediction results can be downloaded from the following link for reproduction: https://pan.baidu.com/s/1xVmKr6bJdCKCT6ftRaKTbg 
 Fetch code：wzxx. Some examples can be see in *visualizaiton*.

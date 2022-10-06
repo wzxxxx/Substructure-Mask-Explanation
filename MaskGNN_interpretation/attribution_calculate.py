@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 import os
 
-# for task_name in ['ESOL', 'BBBP', 'Mutagenicity', 'hERG']:
+# for task_name in ['ESOL','Mutagenicity', 'hERG']:
 for task_name in ['Mutagenicity_data_hERG_task']:
     # for sub_type in ['fg', 'murcko', 'brics', 'brics_emerge', 'murcko_emerge']:
     for sub_type in ['brics']:

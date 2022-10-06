@@ -1,6 +1,7 @@
 from build_data import built_mol_graph_data_and_save
 import argparse
 
+# task_list = ['ESOL','Mutagenicity', 'hERG']
 task_list = ['Non-hERG-Non-Mutag_top20_6_brics_mol']
 for task in task_list:
     input_csv = '../data/origin_data/' + task + '.csv'

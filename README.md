@@ -24,4 +24,5 @@ scipy
 
 
 The datasets, models and prediction results can be downloaded from the following link for reproduction: https://pan.baidu.com/s/1xVmKr6bJdCKCT6ftRaKTbg 
-Fetch code：wzxx. Some examples can be see in *visualizaiton*.
+Fetch code：wzxx. Some examples can be seen in *visualizaiton*.
+These files can also be seen in https://drive.google.com/file/d/1HZaWkHZGx9rwfzikRQqcieJCY0jh2lpw/view?usp=sharing

@@ -1,8 +1,6 @@
 import matplotlib.cm as cm
 import matplotlib
 from IPython.display import SVG, display
-import matplotlib.colors as mcolors
-import seaborn as sns
 from rdkit import Chem
 from rdkit.Chem import rdDepictor
 from rdkit.Chem.Draw import rdMolDraw2D
@@ -36,8 +34,6 @@ def return_rings_attribution(mol, sub_index, sub_atom_attribution_list, fg=False
                     final_ring_index.append(ring)
     return final_ring_index, ring_attribution_index
 
-
-sns.set(color_codes=True)
 
 def atom_attribution_visualize(smiles, atom_attribution, cmap_name='seismic_r',):
     mol = Chem.MolFromSmiles(smiles)
@@ -86,6 +82,7 @@ def sub_attribution_visualize(smiles, atom_attribution, bond_attribution, ring_a
             widthmults[bond_list.index(i)] = 1
     if len(ring_list)>0:
         ring_color = [plt_colors.to_rgba(float(ring_attribution[i])) for i in range(len(ring_list))]
+
     rdDepictor.Compute2DCoords(mol)
 
     drawer = rdMolDraw2D.MolDraw2DCairo(400, 400)
@@ -103,7 +100,9 @@ def sub_attribution_visualize(smiles, atom_attribution, bond_attribution, ring_a
             ring_colors_i = ring_color[i]
             ps = []
             for aidx in aring:
-                pos = Geometry.Point2D(conf.GetAtomPosition(aidx))
+                pos = conf.GetAtomPosition(aidx)
+                # 将环填充的y坐标向上移动，例如增加0.1的偏移量，在两台电脑上，同样的环境，一个会发生偏移，一个不会，我觉得可能是3D位置转2D位置出现的问题
+                pos = Geometry.Point2D(pos.x, pos.y)  # 这里的pos.y可以改成pos.y+0.1是示例值，您可以根据需要调整
                 ps.append(pos)
             drawer.SetFillPolys(True)
             drawer.SetColour(ring_colors_i)
@@ -246,7 +245,7 @@ def return_atom_and_sub_attribution_emerge(smiles, emerge_smask_index,
             emerge_attribution_list.append(emerge_attribution[i])
             emerge_atom_list.append(atom_index)
     # 为emerge子结构每个环添加attribution
-    emerge_ring_list, emerge_ring_attribution_list = return_rings_attribution(mol, emerge_smask_index, emerge_attribution_list)
+    emerge_ring_list, emerge_ring_attribution_list = return_rings_attribution(mol, emerge_smask_index, emerge_attribution_list, fg=True)
 
     # 为emerge子结构每个键添加attribution
     emerge_bond_attribution_index_list = []

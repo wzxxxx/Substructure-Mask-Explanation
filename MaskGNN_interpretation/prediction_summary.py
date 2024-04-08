@@ -1,9 +1,9 @@
 import pandas as pd
 import os
-task_list = ['ESOL', 'Mutagenicity', 'hERG']
+task_list = ['ESOL', 'Mutagenicity', 'hERG', 'Mutagenicity_data_hERG_task']
 sub_type_list = ['mol', 'fg', 'murcko', 'brics', 'brics_emerge', 'murcko_emerge']
-task_list = ['Mutagenicity_data_hERG_task']
-sub_type_list = ['mol']
+task_list = ['ESOL']
+sub_type_list = ['fg']
 
 for task_name in task_list:
     for sub_type in sub_type_list:

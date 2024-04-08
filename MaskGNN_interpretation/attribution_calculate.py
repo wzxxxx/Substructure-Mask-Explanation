@@ -5,10 +5,10 @@ import numpy as np
 import pandas as pd
 import os
 
-# for task_name in ['ESOL','Mutagenicity', 'hERG']:
-for task_name in ['Mutagenicity_data_hERG_task']:
+for task_name in ['ESOL']:
+# for task_name in ['Mutagenicity_data_hERG_task']:
     # for sub_type in ['fg', 'murcko', 'brics', 'brics_emerge', 'murcko_emerge']:
-    for sub_type in ['brics']:
+    for sub_type in ['fg']:
         attribution_result = pd.DataFrame()
         print('{} {}'.format(task_name, sub_type))
         result_sub = pd.read_csv('../prediction/summary/{}_{}_prediction_summary.csv'.format(task_name, sub_type))

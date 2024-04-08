@@ -834,84 +834,84 @@ def built_mol_graph_data_and_save(
     split_index_pd.to_csv(save_g_group_path, index=False, columns=None)
     print('Molecules graph is saved!')
     save_graphs(save_g_path, g_rgcn, graph_labels)
-    #
-    # # build data for brics
-    # data_set_gnn_for_brics = build_mol_graph_data_for_brics(dataset_smiles=data_origin, labels_name=labels_name,
-    #                                                    smiles_name=smiles_name)
-    # smiles, g_rgcn, labels, split_index, smask = map(list, zip(*data_set_gnn_for_brics))
-    # graph_labels = {'labels': th.tensor(labels)
-    #                 }
-    # split_index_pd = pd.DataFrame(columns=['smiles', 'group'])
-    # split_index_pd.smiles = smiles
-    # split_index_pd.group = split_index
-    # split_index_pd.to_csv(save_g_group_for_brics_path, index=False, columns=None)
-    # smask_np = np.array(smask, dtype=object)
-    # np.save(save_g_smask_for_brics_path, smask_np)
-    # print('Molecules graph for brics is saved!')
-    # save_graphs(save_g_for_brics_path, g_rgcn, graph_labels)
-    #
-    # # build data for murcko
-    # data_set_gnn_for_murcko = build_mol_graph_data_for_murcko(dataset_smiles=data_origin, labels_name=labels_name,
-    #                                                    smiles_name=smiles_name)
-    # smiles, g_rgcn, labels, split_index, smask = map(list, zip(*data_set_gnn_for_murcko))
-    # graph_labels = {'labels': th.tensor(labels)
-    #                 }
-    # split_index_pd = pd.DataFrame(columns=['smiles', 'group'])
-    # split_index_pd.smiles = smiles
-    # split_index_pd.group = split_index
-    # split_index_pd.to_csv(save_g_group_for_murcko_path, index=False, columns=None)
-    # smask_np = np.array(smask, dtype=object)
-    # np.save(save_g_smask_for_murcko_path, smask_np)
-    # print('Molecules graph for murcko is saved!')
-    # save_graphs(save_g_for_murcko_path, g_rgcn, graph_labels)
+
+    # build data for brics
+    data_set_gnn_for_brics = build_mol_graph_data_for_brics(dataset_smiles=data_origin, labels_name=labels_name,
+                                                       smiles_name=smiles_name)
+    smiles, g_rgcn, labels, split_index, smask = map(list, zip(*data_set_gnn_for_brics))
+    graph_labels = {'labels': th.tensor(labels)
+                    }
+    split_index_pd = pd.DataFrame(columns=['smiles', 'group'])
+    split_index_pd.smiles = smiles
+    split_index_pd.group = split_index
+    split_index_pd.to_csv(save_g_group_for_brics_path, index=False, columns=None)
+    smask_np = np.array(smask, dtype=object)
+    np.save(save_g_smask_for_brics_path, smask_np)
+    print('Molecules graph for brics is saved!')
+    save_graphs(save_g_for_brics_path, g_rgcn, graph_labels)
+
+    # build data for murcko
+    data_set_gnn_for_murcko = build_mol_graph_data_for_murcko(dataset_smiles=data_origin, labels_name=labels_name,
+                                                       smiles_name=smiles_name)
+    smiles, g_rgcn, labels, split_index, smask = map(list, zip(*data_set_gnn_for_murcko))
+    graph_labels = {'labels': th.tensor(labels)
+                    }
+    split_index_pd = pd.DataFrame(columns=['smiles', 'group'])
+    split_index_pd.smiles = smiles
+    split_index_pd.group = split_index
+    split_index_pd.to_csv(save_g_group_for_murcko_path, index=False, columns=None)
+    smask_np = np.array(smask, dtype=object)
+    np.save(save_g_smask_for_murcko_path, smask_np)
+    print('Molecules graph for murcko is saved!')
+    save_graphs(save_g_for_murcko_path, g_rgcn, graph_labels)
 
     # build data for function group
-    # data_set_gnn_for_fg = build_mol_graph_data_for_fg(dataset_smiles=data_origin, labels_name=labels_name,
-    #                                                    smiles_name=smiles_name, task_name=task_name)
-    # smiles, g_rgcn, labels, split_index, fg_mask, fg_name = map(list, zip(*data_set_gnn_for_fg))
-    # graph_labels = {'labels': th.tensor(labels)
-    #                 }
-    # split_index_pd = pd.DataFrame(columns=['smiles', 'group', 'sub_name'])
-    # split_index_pd.smiles = smiles
-    # split_index_pd.group = split_index
-    # split_index_pd.sub_name = fg_name
-    # split_index_pd.to_csv(save_g_group_for_fg_path, index=False, columns=None)
-    # fg_mask_np = np.array(fg_mask, dtype=object)
-    # np.save(save_g_smask_for_fg_path, fg_mask_np)
-    # print('Molecules graph for function group is saved!')
-    # save_graphs(save_g_for_fg_path, g_rgcn, graph_labels)
+    data_set_gnn_for_fg = build_mol_graph_data_for_fg(dataset_smiles=data_origin, labels_name=labels_name,
+                                                       smiles_name=smiles_name, task_name=task_name)
+    smiles, g_rgcn, labels, split_index, fg_mask, fg_name = map(list, zip(*data_set_gnn_for_fg))
+    graph_labels = {'labels': th.tensor(labels)
+                    }
+    split_index_pd = pd.DataFrame(columns=['smiles', 'group', 'sub_name'])
+    split_index_pd.smiles = smiles
+    split_index_pd.group = split_index
+    split_index_pd.sub_name = fg_name
+    split_index_pd.to_csv(save_g_group_for_fg_path, index=False, columns=None)
+    fg_mask_np = np.array(fg_mask, dtype=object)
+    np.save(save_g_smask_for_fg_path, fg_mask_np)
+    print('Molecules graph for function group is saved!')
+    save_graphs(save_g_for_fg_path, g_rgcn, graph_labels)
 
-    # # build data for brics_emerge
-    # data_set_gnn_for_fg = build_mol_graph_data_for_brics_emerge(dataset_smiles=data_origin, labels_name=labels_name,
-    #                                                             smiles_name=smiles_name)
-    # smiles, g_rgcn, labels, split_index, brics_emerge_mask, sub_name = map(list, zip(*data_set_gnn_for_fg))
-    # graph_labels = {'labels': th.tensor(labels)
-    #                 }
-    # split_index_pd = pd.DataFrame(columns=['smiles', 'group', 'sub_name'])
-    # split_index_pd.smiles = smiles
-    # split_index_pd.group = split_index
-    # split_index_pd.sub_name = sub_name
-    # split_index_pd.to_csv(save_g_group_for_brics_emerge_path, index=False, columns=None)
-    # brics_emerge_mask_np = np.array(brics_emerge_mask, dtype=object)
-    # np.save(save_g_smask_for_brics_emerge_path, brics_emerge_mask_np)
-    # print('Molecules graph for brics emerge is saved!')
-    # save_graphs(save_g_for_brics_emerge_path, g_rgcn, graph_labels)
-    #
-    # # build data for murcko_emerge
-    # data_set_gnn_for_fg = build_mol_graph_data_for_murcko_emerge(dataset_smiles=data_origin, labels_name=labels_name,
-    #                                                              smiles_name=smiles_name)
-    # smiles, g_rgcn, labels, split_index, murcko_emerge_mask, sub_name = map(list, zip(*data_set_gnn_for_fg))
-    # graph_labels = {'labels': th.tensor(labels)
-    #                 }
-    # split_index_pd = pd.DataFrame(columns=['smiles', 'group', 'sub_name'])
-    # split_index_pd.smiles = smiles
-    # split_index_pd.group = split_index
-    # split_index_pd.sub_name = sub_name
-    # split_index_pd.to_csv(save_g_group_for_murcko_emerge_path, index=False, columns=None)
-    # murcko_emerge_mask_np = np.array(murcko_emerge_mask, dtype=object)
-    # np.save(save_g_smask_for_murcko_emerge_path, murcko_emerge_mask_np)
-    # print('Molecules graph for murcko emerge is saved!')
-    # save_graphs(save_g_for_murcko_emerge_path, g_rgcn, graph_labels)
+    # build data for brics_emerge
+    data_set_gnn_for_fg = build_mol_graph_data_for_brics_emerge(dataset_smiles=data_origin, labels_name=labels_name,
+                                                                smiles_name=smiles_name)
+    smiles, g_rgcn, labels, split_index, brics_emerge_mask, sub_name = map(list, zip(*data_set_gnn_for_fg))
+    graph_labels = {'labels': th.tensor(labels)
+                    }
+    split_index_pd = pd.DataFrame(columns=['smiles', 'group', 'sub_name'])
+    split_index_pd.smiles = smiles
+    split_index_pd.group = split_index
+    split_index_pd.sub_name = sub_name
+    split_index_pd.to_csv(save_g_group_for_brics_emerge_path, index=False, columns=None)
+    brics_emerge_mask_np = np.array(brics_emerge_mask, dtype=object)
+    np.save(save_g_smask_for_brics_emerge_path, brics_emerge_mask_np)
+    print('Molecules graph for brics emerge is saved!')
+    save_graphs(save_g_for_brics_emerge_path, g_rgcn, graph_labels)
+
+    # build data for murcko_emerge
+    data_set_gnn_for_fg = build_mol_graph_data_for_murcko_emerge(dataset_smiles=data_origin, labels_name=labels_name,
+                                                                 smiles_name=smiles_name)
+    smiles, g_rgcn, labels, split_index, murcko_emerge_mask, sub_name = map(list, zip(*data_set_gnn_for_fg))
+    graph_labels = {'labels': th.tensor(labels)
+                    }
+    split_index_pd = pd.DataFrame(columns=['smiles', 'group', 'sub_name'])
+    split_index_pd.smiles = smiles
+    split_index_pd.group = split_index
+    split_index_pd.sub_name = sub_name
+    split_index_pd.to_csv(save_g_group_for_murcko_emerge_path, index=False, columns=None)
+    murcko_emerge_mask_np = np.array(murcko_emerge_mask, dtype=object)
+    np.save(save_g_smask_for_murcko_emerge_path, murcko_emerge_mask_np)
+    print('Molecules graph for murcko emerge is saved!')
+    save_graphs(save_g_for_murcko_emerge_path, g_rgcn, graph_labels)
 
 
 def load_graph_from_csv_bin_for_splited(

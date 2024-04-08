@@ -1,13 +1,13 @@
 import numpy as np
-from MaskGNN_interpretation import build_data
+import build_data
 import pandas as pd
 import torch
 from torch.optim import Adam
 from torch.utils.data import DataLoader
-from MaskGNN_interpretation.maskgnn import collate_molgraphs, EarlyStopping, run_a_train_epoch, \
+from maskgnn import collate_molgraphs, EarlyStopping, run_a_train_epoch, \
     run_an_eval_epoch, set_random_seed, RGCN, pos_weight
 import pickle as pkl
-import time
+import argparse
 
 
 # fix parameters of model
@@ -87,10 +87,10 @@ def SMEG_explain_for_substructure(seed, task_name, rgcn_hidden_feats=[64, 64, 64
 
 
 
-# for task in ['ESOL', 'Mutagenicity', 'hERG']:
-for task in ['Mutagenicity']:
-    # for sub_type in ['fg', 'murcko', 'brics', 'brics_emerge', 'murcko_emerge']:
-    for sub_type in ['fg']:
+for task in ['ESOL', 'Mutagenicity', 'hERG', 'BBBP']:
+# for task in ['Mutagenicity']:
+    for sub_type in ['fg', 'murcko', 'brics', 'brics_emerge', 'murcko_emerge']:
+    # for sub_type in ['fg']:
         # load
         with open('../result/hyperparameter_{}.pkl'.format(task), 'rb') as f:
             hyperparameter = pkl.load(f)
@@ -99,10 +99,6 @@ for task in ['Mutagenicity']:
                                           rgcn_hidden_feats=hyperparameter['rgcn_hidden_feats'],
                                           ffn_hidden_feats=hyperparameter['ffn_hidden_feats'],
                                           lr=hyperparameter['lr'], classification=hyperparameter['classification'], sub_type=sub_type)
-
-
-
-
 
 
 
